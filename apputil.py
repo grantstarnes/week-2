@@ -21,5 +21,5 @@ def lowest_score(names, scores):                 # The provided lowest_score fun
 def sort_names(names, scores):                   # The provided sort_names function that takes in two arrays: names and scores
     high_to_low = np.argsort(scores)[::-1]       # This line uses the numpy function argsort to get the indices that would sort the scores array in ascending order.
                                                  # The [::-1] slice then reverses this array of indices to arrange them in descending order.
-    return names[high_to_low]                    # This line returns the names array rearranged according to the indices in high_to_low, effectively sorting the 
+    return names[high_to_low].tolist()           # This line returns the names array rearranged according to the indices in high_to_low, effectively sorting the 
                                                  # names based on their corresponding scores from highest to lowest.
