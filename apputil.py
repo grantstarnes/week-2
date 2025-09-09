@@ -18,8 +18,10 @@ def lowest_score(names, scores):                 # The provided lowest_score fun
     min_score = np.argmin(scores)                # This line uses the numpy function argmin to find the index of the minimum value in the scores array.
     return names[min_score]                      # This line returns the name corresponding to the index of the lowest score found in the previous line.
 
-def sort_names(names, scores):                   # The provided sort_names function that takes in two arrays: names and scores
-    high_to_low = np.argsort(scores)[::-1]       # This line uses the numpy function argsort to get the indices that would sort the scores array in ascending order.
-                                                 # The [::-1] slice then reverses this array of indices to arrange them in descending order.
-    return names[high_to_low].tolist()           # This line returns the names array rearranged according to the indices in high_to_low, effectively sorting the 
-                                                 # names based on their corresponding scores from highest to lowest.
+def sort_names(names, scores):                             # The provided sort_names function that takes in two arrays: names and scores
+    high_to_low = np.argsort(scores)[::-1]                 # This line uses the numpy function argsort to get the indices that would sort the scores array in ascending order.
+                                                           # The [::-1] slice then reverses this array of indices to arrange them in descending order.
+    sorted_names = names[high_to_low].tolist()             # This line uses the sorted indices to reorder the names array accordingly and converts it to a list.
+    sorted_scores = scores[high_to_low].tolist()           # This line does the same for the scores array.
+    name_grade = list(zip(sorted_names, sorted_scores))    # This line combines the sorted names and scores into a list of tuples, where each tuple contains a name and its corresponding score.
+    return name_grade                                      # Finally, this line returns the list of tuples containing names and their corresponding scores sorted from highest to lowest score.
